@@ -1,0 +1,11 @@
+[{
+	"id": 1,
+	"username": "jack",
+	"nickname": "杰克",
+	"remark": "杰克是一个美国人"
+}, {
+	"id": 2,
+	"username": "toney",
+	"nickname": "托尼",
+	"remark": "托尼来自横滨"
+}]

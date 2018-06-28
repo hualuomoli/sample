@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.depsVersion.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.depsVersion.minSdkVersion
+        targetSdkVersion rootProject.ext.depsVersion.targetSdkVersion
+        versionCode rootProject.ext.depsVersion.versionCode
+        versionName rootProject.ext.depsVersion.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // jni
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // dependency
+    implementation rootProject.ext.deps.support
+    implementation rootProject.ext.deps.layout
+
+}

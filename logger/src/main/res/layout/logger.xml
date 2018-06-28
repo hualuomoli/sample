@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/logger_verbose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:text="Verbose" />
+
+    <Button
+        android:id="@+id/logger_debug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:text="Debug" />
+
+    <Button
+        android:id="@+id/logger_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:text="Info" />
+
+    <Button
+        android:id="@+id/logger_warn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:text="Warn" />
+
+    <Button
+        android:id="@+id/logger_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:text="Error" />
+
+    <Button
+        android:id="@+id/logger_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:text="Type" />
+
+</LinearLayout>

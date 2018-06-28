@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+// 读取配置文件
+Properties properties = new Properties()
+properties.load(rootProject.file('app/jks/jks.properties').newDataInputStream())
+properties.load(rootProject.file('local.properties').newDataInputStream()) // 实际发布服务器信息在local中配置
+
+// 项目信息
+def jks_keyAlias = properties.getProperty('jks.keyAlias')
+def jks_keyPassword = properties.getProperty('jks.keyPassword')
+def jks_storePassword = properties.getProperty('jks.storePassword')
+
+android {
+    compileSdkVersion rootProject.ext.depsVersion.compileSdkVersion
+    defaultConfig {
+        applicationId "sample.jni"
+        minSdkVersion rootProject.ext.depsVersion.minSdkVersion
+        targetSdkVersion rootProject.ext.depsVersion.targetSdkVersion
+        versionCode rootProject.ext.depsVersion.versionCode
+        versionName rootProject.ext.depsVersion.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    // 签名
+    signingConfigs {
+        release {
+            storeFile file('jks/hualuomoli.jks')
+            storePassword jks_storePassword
+            keyAlias jks_keyAlias
+            keyPassword jks_keyPassword
+        }
+        debug {
+            storeFile file('jks/hualuomoli.jks')
+            storePassword jks_storePassword
+            keyAlias jks_keyAlias
+            keyPassword jks_keyPassword
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // dependency
+    implementation rootProject.ext.deps.support
+    implementation rootProject.ext.deps.layout
+    implementation project(':demo')
+    implementation project(':logger')
+    implementation project(':api')
+    implementation project(':sign')
+
+    // junit test
+    testImplementation rootProject.ext.deps.junit
+
+    // android test
+    androidTestImplementation rootProject.ext.deps.runner
+    androidTestImplementation rootProject.ext.deps.espresso
+}

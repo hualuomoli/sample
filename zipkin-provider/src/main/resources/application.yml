@@ -1,0 +1,11 @@
+server:
+  port: 6002
+  
+spring:
+  application:
+    name: zipkin-provider
+    
+  zipkin:
+    base-url: http://localhost:6001
+    
+    

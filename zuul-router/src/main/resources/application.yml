@@ -1,0 +1,21 @@
+server:
+  port: 8074
+  
+spring:
+  application:
+    name: zuul-router
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      service-id: zuul-provider-demo
+    api-b: 
+      path: /api-b/**
+      service-id: zuul-provider-info
+          

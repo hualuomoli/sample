@@ -1,0 +1,26 @@
+server:
+  port: 7001
+  
+spring:
+  application:
+    name: config-server
+  
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/hualuomoli/sample.git
+          search-paths:
+          - java/spring-cloud/config-server/yml
+          
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - bus-refresh
+      
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/

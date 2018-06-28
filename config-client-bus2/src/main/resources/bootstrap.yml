@@ -1,0 +1,33 @@
+server:
+  port: 7005
+  
+spring:
+  application:
+    name: config-client
+    
+  cloud:
+    config:
+      label: master
+      profile: prod
+      discovery:
+        enabled: true
+        service-id: config-server
+        
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest 
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - bus-refresh
+        
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+      

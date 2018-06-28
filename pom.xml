@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.hualuomoli.sample</groupId>
+  <artifactId>springcloud-parent</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <name>Spring Cloud 案例</name>
+  <url>http://maven.apache.org</url>
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <spring-boot.version>2.0.1.RELEASE</spring-boot.version>
+    <spring-cloud.version>Finchley.RC1</spring-cloud.version>
+  </properties>
+
+  <!-- 模块 -->
+  <modules>
+
+    <!-- eureka -->
+    <module>eureka-server</module>
+    <module>eureka-client</module>
+
+    <!-- business provider and consumer -->
+    <module>business-provider</module>
+    <module>business-provider2</module>
+    <module>business-provider3</module>
+    <module>business-consumer-url</module>
+    <module>business-consumer-ribbon</module>
+    <module>business-consumer-feign</module>
+    <module>business-consumer-ribbon-hystrix</module>
+    <module>business-consumer-feign-hystrix</module>
+    <module>business-consumer-ribbon-hystrix-dashboard</module>
+    <module>business-consumer-feign-hystrix-dashboard</module>
+
+    <!-- zuul -->
+    <module>zuul-provider</module>
+    <module>zuul-provider2</module>
+    <module>zuul-provider3</module>
+    <module>zuul-router</module>
+    <module>zuul-filter</module>
+
+    <!-- config -->
+    <module>config-server</module>
+    <module>config-client-url</module>
+    <module>config-client-eureka</module>
+    <module>config-client-bus</module>
+    <module>config-client-bus2</module>
+
+    <!-- zipkin -->
+    <module>zipkin-server</module>
+    <module>zipkin-provider</module>
+    <module>zipkin-consumer</module>
+
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- boot -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- cloud -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <!-- 插件 -->
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <showWarnings>true</showWarnings>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <!-- Spring仓库地址 -->
+  <repositories>
+    <repository>
+      <id>spring-snapshots</id>
+      <name>Spring Snapshots</name>
+      <url>https://repo.spring.io/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+</project>

@@ -1,0 +1,17 @@
+server:
+  port: 9007
+  
+spring:
+  application:
+    name: business-consumer-feign-hystrix-dashboard
+    
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+      
+      
+feign:
+  hystrix:
+    enabled: true

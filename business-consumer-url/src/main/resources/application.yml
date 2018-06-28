@@ -1,0 +1,9 @@
+server:
+  port: 9001
+  
+spring:
+  application:
+    name: business-consumer-url
+    
+provider:
+  url: http://localhost:8061  # 只能指定一个服务器地址

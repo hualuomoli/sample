@@ -1,0 +1,13 @@
+server:
+  port: 7002
+  
+spring:
+  application:
+    name: config-client
+    
+  cloud:
+    config:
+      label: master
+      profile: test
+      uri: http://localhost:7001
+      

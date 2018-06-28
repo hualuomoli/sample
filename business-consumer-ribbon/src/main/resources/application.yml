@@ -1,0 +1,14 @@
+server:
+  port: 9002
+  
+spring:
+  application:
+    name: business-consumer-ribbon
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+      
+provider:
+  url: http://business-provider  # 使用提供者的spring.application.name,多个提供者使用同一个名字

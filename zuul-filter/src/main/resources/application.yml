@@ -1,0 +1,20 @@
+server:
+  port: 8075
+  
+spring:
+  application:
+    name: zuul-filter
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+      
+zuul:
+  routes:
+    api:
+      path: /api/**
+      service-id: zuul-provider-demo
+    auth:
+      path: /auth/**
+      service-id: zuul-provider-info

@@ -1,0 +1,11 @@
+server:
+  port: 8073
+  
+spring:
+  application:
+    name: zuul-provider-info
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/

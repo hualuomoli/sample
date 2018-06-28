@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>客户端nginx完成修改</title>
+  <meta name="description" content="客户端nginx完成修改,客户端修访问服务器的url，服务器不进行修改">
+  <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/toastr.js/latest/toastr.css" rel="stylesheet">
+  <style>
+    .container {
+      margin-top: 200px;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="">用户名</label>
+      </div>
+      <div class="col-md-8">
+        <input type="text" class="form-control" name="username">
+      </div>
+    </div>
+
+
+   <div class="row">
+     <div class="col-md-4">
+        <label for="">密码</label>
+      </div>
+      <div class="col-md-8">
+        <input type="password" class="form-control" name="password">
+      </div>
+   </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary">提交</button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.js"></script>
+  <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
+  <script>
+    // http://www.bootcdn.cn/toastr.js/readme/
+    // http://codeseven.github.io/toastr/demo.html
+    toastr.options.closeButton = true; 
+    toastr.options.timeOut = 500; 
+    toastr.options.extendedTimeOut  = 100; 
+    toastr.options.positionClass  = 'toast-bottom-right'; 
+
+    // 客户端访问当前代理服务器的相对uri(客户端nginx配置了/server -> http://localhost:8080)
+    $('button').click(function(e) {
+      var username = $('input[name=username]').val();
+      var password = $('input[name=password]').val();
+      $.post('/server/user/login', {
+        username: username,
+        password: password
+      }, function(result) {
+        toastr.info(result, '登录成功')
+      })
+    });
+  </script>
+</body>
+</html>

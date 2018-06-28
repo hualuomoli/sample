@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mail
+    
+  profiles:
+    active:
+    - local
+    
+  mail:
+    host: smtp.163.com
+    port: 25
+    username: 你自己的邮箱
+    password: 邮箱密码
+    protocol: smtp
+    default-encoding: UTF-8
+
+# 发送到    
+sendToMails: 好友邮箱(使用逗号分隔)
+    

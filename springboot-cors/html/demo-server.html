@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>服务端完成修改</title>
+  <meta name="description" content="服务端增加了跨域的支持,客户端不需要修改">
+  <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/toastr.js/latest/toastr.css" rel="stylesheet">
+  <style>
+    .container {
+      margin-top: 200px;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <label for="">world</label>
+      </div>
+      <div class="col-md-8">
+        <input type="text" class="form-control" name="world" id="world">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary">提交</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.js"></script>
+  <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
+  <script>
+    // http://www.bootcdn.cn/toastr.js/readme/
+    // http://codeseven.github.io/toastr/demo.html
+    toastr.options.closeButton = true; 
+    toastr.options.timeOut = 500; 
+    toastr.options.extendedTimeOut  = 100; 
+    toastr.options.positionClass  = 'toast-bottom-right'; 
+
+    // 按照原来的方式直接访问服务端
+    $('button').click(function(e) {
+      var world = $('#world').val();
+      $.post('http://localhost:8080/demo/say', {
+        world: world
+      }, function(result) {
+        toastr.info(result, '调用成功')
+      })
+    });
+  </script>
+</body>
+</html>

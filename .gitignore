@@ -1,0 +1,6 @@
+/**/target
+/**/.settings
+/**/.project
+/***/.classpath
+/**/bin
+/src/main/resources/local.properties

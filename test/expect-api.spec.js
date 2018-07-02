@@ -2,6 +2,30 @@ var expect = require('expect')
 
 // https://facebook.github.io/jest/docs/en/next/expect.html
 
+// https://www.jianshu.com/p/2e5947193793
+// Matcher实现了断言的比较操作，将Expectation传入的实际值和Matcher传入的期望值比较。任何Matcher都能通过在expect调用Matcher前加上not来实现一个否定的断言（expect(a).not().toBe(false);）。
+// 常用的Matchers有：
+// toBe()：相当于= =比较。
+// toNotBe():相当于! =比较。
+// toBeDefined()：检查变量或属性是否已声明且赋值。
+// toBeUndefined()
+// toBeNull()：是否是null。
+// toBeTruthy()：如果转换为布尔值，是否为true。
+// toBeFalsy()
+// toBeLessThan()：数值比较，小于。
+// toBeGreaterThan()：数值比较，大于。
+// toEqual()：相当于==，注意与toBe()的区别。一个新建的Object不是（not to be）另一个新建的Object，但是它们是相等（to equal）的。
+// expect({}).not().toBe({});
+// expect({}).toEqual({});
+// toNotEqual()
+// toContain()：数组中是否包含元素（值）。只能用于数组，不能用于对象。
+// toBeCloseTo()：数值比较时定义精度，先四舍五入后再比较。
+// toHaveBeenCalled()
+// toHaveBeenCalledWith()
+// toMatch()：按正则表达式匹配。
+// toNotMatch()
+// toThrow()：检验一个函数是否会抛出一个错误
+
 describe('API', function() {
 
   it('resolves', function() {

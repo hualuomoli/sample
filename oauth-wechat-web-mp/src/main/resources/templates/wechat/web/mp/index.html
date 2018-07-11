@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" contet="用户使用浏览器登录界面">
+  <title>微信授权登录</title>
+  <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+  <style>
+    .auth {
+      display: inline-block;
+    }
+    .modal-content {
+      width: 280px;
+    }
+    #qrcode {
+      width: 200px;
+      height: 200px;
+      margin: 8px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <form class="form-horizontal">
+
+      <div class="form-group">
+        <span class="control-label col-3">用户名</span>
+        <div class="col-9">
+          <input type="text" class="form-control" placeholder="用户名/手机号/邮箱">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <span class="control-label col-3">密码</span>
+        <div class="col-9">
+          <input type="password" class="form-control" placeholder="请输入密码">
+        </div>
+      </div>
+  
+
+      <div class="form-group">
+        <div class="col-offset-3 col-9">
+          <button type="submit" class="btn btn-primary">登录</button>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-offset-3 col-8">
+          <h3 class="auth">使用第三方账号登录</h3>
+          <button type="button" class="wechat btn btn-info">微信</button>
+          <button type="button" class="qq btn" disabled="disabled">QQ</button>
+          <button type="button" class="weibo btn" disabled="disabled">微博</button>
+        </div>
+      </div>
+
+    </form>
+
+    <div class="modal fade" role="dialog">
+      <div class="modal-dialog" role="docuemnt">
+        <div class="modal-content">
+          <div id="qrcode"></div>
+          <h4 class="text-center">打开微信 "扫一扫" 登录</h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.js"></script>
+  <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+  <script>
+
+    let interval;
+
+    // 获取长度为len的随机字符串
+    function _getRandomString(len) {
+      len = len || 32;
+      var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'; // 默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1
+      var maxPos = $chars.length;
+      var str = '';
+      for (i = 0; i < len; i++) {
+          str += $chars.charAt(Math.floor(Math.random() * maxPos));
+      }
+      return str;
+    }
+	
+    // 微信按钮
+    $('button.wechat').click((e)=>{
+      let state = _getRandomString();
+     new Promise((resolve, reject) => {
+       $.get('/wechat/web/mp/auth', {
+        state: state
+       }, (res) => {
+        console.log(res)
+        resolve(res);
+      })
+     })
+     .then((authUrl) => {
+      $('#qrcode').html('').qrcode({
+        width: 200,
+        height: 200,
+        text: authUrl
+      });
+      $('.modal').modal('show');
+      // 查询登录状态
+      queryLoginState(state);
+     })
+    })
+
+    // 隐藏时停止查询
+    $('.modal').on('hidden.bs.modal', (e) =>{
+      stopQuery();
+    })
+
+    function queryLoginState(state) {
+      if(!state) {
+        return;
+      }
+      // 先停止查询
+      stopQuery();
+      // 开启轮训查询
+      interval = setInterval(()=>{
+        new Promise((resolve, reject) => {
+          $.post('/wechat/web/mp/query', {
+            state: state
+          }, (res) => {
+            resolve(res);
+          }, "json")
+        })
+        .then((result) => {
+          if(result.success) {
+        	 // 查询成功,停止查询
+             stopQuery();
+            // go to logged
+            window.location = '/wechat/web/mp/logged?state=' + state;
+          }
+        })
+      }, 1000);
+    }
+    
+    // 停止查询
+    function stopQuery() {
+      if(interval) {
+        clearInterval(interval);
+      }
+    }
+  </script>
+</body>
+</html>

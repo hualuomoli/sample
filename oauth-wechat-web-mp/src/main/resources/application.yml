@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  host: 域名
+spring:
+  application:
+    name: auth-wechat-web-mp
+    
+  profiles:
+    active:
+    - test
+    
+auth:
+  wechat: 
+    web: 
+      mp:
+        app_id: app id
+        app_secret: app secret
+        callback_url: http://${server.host}/wechat/web/mp/callback
+        index_url: http://${server.host}/wechat/web/mp/index

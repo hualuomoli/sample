@@ -28,6 +28,8 @@
     <module>springboot-interceptor</module>
     <module>springboot-filter</module>
     <module>springboot-cors</module>
+    <module>spirngboot-kafka</module>
+    <module>springboot-storm</module>
   </modules>
 
   <dependencyManagement>

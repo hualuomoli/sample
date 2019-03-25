@@ -1,9 +1,0 @@
-spring:
-   application:
-      name: redis-lua
-      
-   redis:
-      database: 0
-      host: redis.sample
-      port: 6379
-      

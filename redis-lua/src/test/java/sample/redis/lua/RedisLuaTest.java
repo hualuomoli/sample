@@ -54,7 +54,7 @@ public class RedisLuaTest {
 
         String product = "product";
         Long success = redisTemplate.execute((RedisConnection conn) -> {
-            return conn.eval(lua.getBytes(CHARSET), ReturnType.INTEGER, 2, product.getBytes(CHARSET));
+            return conn.eval(lua.getBytes(CHARSET), ReturnType.INTEGER, 1, product.getBytes(CHARSET));
         });
         logger.info("decr stock {}", success);
     }

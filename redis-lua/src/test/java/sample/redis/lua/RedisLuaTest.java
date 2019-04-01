@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.util.Lists;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -107,6 +108,15 @@ public class RedisLuaTest {
             return conn.eval(lua.getBytes(CHARSET), ReturnType.VALUE, 1, keysAndArgs);
         });
         logger.info("{}", new String(result));
+
+        // check
+        Assert.assertEquals("4", redisTemplate.opsForValue().get("key1"));
+        Assert.assertEquals("3", redisTemplate.opsForValue().get("key2"));
+        Assert.assertEquals("16", redisTemplate.opsForValue().get("key3"));
+        Assert.assertEquals("2", redisTemplate.opsForValue().get("key4"));
+
+        // remove   
+        redisTemplate.delete(Lists.newArrayList("key1", "key2", "key3", "key4"));
     }
 
     @Test
@@ -150,6 +160,15 @@ public class RedisLuaTest {
             return conn.eval(lua.getBytes(CHARSET), ReturnType.VALUE, 1, keysAndArgs);
         });
         logger.info("{}", new String(result));
+        
+        // check
+        Assert.assertEquals("4", redisTemplate.opsForValue().get("key1"));
+        Assert.assertEquals("3", redisTemplate.opsForValue().get("key2"));
+        Assert.assertEquals("16", redisTemplate.opsForValue().get("key3"));
+        Assert.assertEquals("2", redisTemplate.opsForValue().get("key4"));
+
+        // remove   
+        redisTemplate.delete(Lists.newArrayList("key1", "key2", "key3", "key4"));
     }
 
     public static class Data {

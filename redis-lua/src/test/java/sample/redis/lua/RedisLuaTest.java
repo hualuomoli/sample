@@ -53,9 +53,15 @@ public class RedisLuaTest {
         logger.info("value is {}", value);
     }
 
-    // redis-cli --eval test.lua _lock_test , 1 1000 id num ops incr decr '[{"id": "1234", "num": 20, "ops": "incr"}, {"id": "5678", "num": 10, "ops": "decr"}]'
     @Test
+    @Ignore
     public void testRedisLuaUseJsonDataAndFunction() throws IOException {
+
+        // set decrement data before test
+        redisTemplate.delete(Lists.newArrayList("key1", "key2", "key3", "key4"));
+        redisTemplate.opsForValue().set("key1", "10");
+        redisTemplate.opsForValue().set("key4", "10");
+
         File file = new File(new File(projectPath, relativePath), "redis-lua-json-function.lua");
         List<String> lines = FileUtils.readLines(file, CHARSET).stream() //
                 .filter(line -> !line.trim().startsWith("--")) //
@@ -70,20 +76,71 @@ public class RedisLuaTest {
         final String lua = StringUtils.join(lines, "\n");
 
         List<Data> dataList = Lists.newArrayList();
-        dataList.add(new Data("name", 10L, "1"));
-        dataList.add(new Data("age", 10L, "-1"));
-        dataList.add(new Data("nickname", 10L, "-1"));
-        dataList.add(new Data("salary", 10L, "1"));
+        dataList.add(Data.decrement("key1", 6L));
+        dataList.add(Data.increment("key2", 3L));
+        dataList.add(Data.increment("key3", 16L));
+        dataList.add(Data.decrement("key4", 8L));
 
         List<String> arguments = Lists.newArrayList();
+        // lock key
         arguments.add("_lock_key");
+        // data
+        arguments.add(JSON.toJSONString(dataList));
+
+        // data key number operator
+        arguments.add("key");
+        arguments.add("number");
+        arguments.add("operator");
+
+        // operator increment and decrement
+        arguments.add("increment");
+        arguments.add("decrement");
+
+        // lock value and expire
         arguments.add(UUID.randomUUID().toString().replaceAll("[-]", ""));
         arguments.add("100");
-        arguments.add("name");
-        arguments.add("count");
-        arguments.add("ops");
-        arguments.add("1");
-        arguments.add("-1");
+
+        byte[][] keysAndArgs = arguments.stream().map(String::getBytes).collect(Collectors.toList())
+                .toArray(new byte[][] {});
+
+        byte[] result = redisTemplate.execute((RedisConnection conn) -> {
+            return conn.eval(lua.getBytes(CHARSET), ReturnType.VALUE, 1, keysAndArgs);
+        });
+        logger.info("{}", new String(result));
+    }
+
+    @Test
+    @Ignore
+    public void testRedisLuaUseJsonDataAndFunctionWithDefaultLuaValue() throws IOException {
+
+        // set decrement data before test
+        redisTemplate.delete(Lists.newArrayList("key1", "key2", "key3", "key4"));
+        redisTemplate.opsForValue().set("key1", "10");
+        redisTemplate.opsForValue().set("key4", "10");
+
+        File file = new File(new File(projectPath, relativePath), "redis-lua-json-function.lua");
+        List<String> lines = FileUtils.readLines(file, CHARSET).stream() //
+                .filter(line -> !line.trim().startsWith("--")) //
+                .map(line -> {
+                    int index = line.indexOf(" --");
+                    if (index == -1) {
+                        return line;
+                    }
+                    return line.substring(0, index);
+                })//
+                .collect(Collectors.toList());
+        final String lua = StringUtils.join(lines, "\n");
+
+        List<Data> dataList = Lists.newArrayList();
+        dataList.add(Data.decrement("key1", 6L));
+        dataList.add(Data.increment("key2", 3L));
+        dataList.add(Data.increment("key3", 16L));
+        dataList.add(Data.decrement("key4", 8L));
+
+        List<String> arguments = Lists.newArrayList();
+        // lock key
+        arguments.add("_lock_key");
+        // data
         arguments.add(JSON.toJSONString(dataList));
 
         byte[][] keysAndArgs = arguments.stream().map(String::getBytes).collect(Collectors.toList())
@@ -96,32 +153,48 @@ public class RedisLuaTest {
     }
 
     public static class Data {
-        private String name;
-        private Long count;
-        private String ops;
 
-        public Data(String name, Long count, String ops) {
-            this.name = name;
-            this.count = count;
-            this.ops = ops;
+        private static final String OPERATOR_INCREMENT = "increment";
+        private static final String OPERATOR_DECREMENT = "decrement";
+
+        /** 键 */
+        private String key;
+        /** 操作数量 */
+        private Long number;
+        /** 操作 */
+        private String operator;
+
+        public static Data increment(String key, Long number) {
+            return new Data(key, number, OPERATOR_INCREMENT);
         }
 
-        public String getName() {
-            return name;
+        public static Data decrement(String key, Long number) {
+            return new Data(key, number, OPERATOR_DECREMENT);
         }
 
-        public Long getCount() {
-            return count;
+        private Data(String key, Long number, String operator) {
+            this.key = key;
+            this.number = number;
+            this.operator = operator;
         }
 
-        public String getOps() {
-            return ops;
+        public String getKey() {
+            return key;
+        }
+
+        public Long getNumber() {
+            return number;
+        }
+
+        public String getOperator() {
+            return operator;
         }
 
         @Override
         public String toString() {
-            return "Data [name=" + name + ", count=" + count + ", ops=" + ops + "]";
+            return "Data [key=" + key + ", number=" + number + ", operator=" + operator + "]";
         }
+
     } // end class Data
 
 }

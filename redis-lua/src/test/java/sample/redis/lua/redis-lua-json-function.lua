@@ -175,17 +175,18 @@ local function exec(json, value_increment, value_decrement)
     end
 end
 
--- redis-cli --eval test.lua _lock_test , 1 1000 id num ops incr decr '[{"id": "1234", "num": 20, "ops": "incr"}, {"id": "5678", "num": 10, "ops": "decr"}]'
+-- redis-cli --eval test.lua _lock_test , '[{"key": "1234", "number": 20, "operator": "increment"}, {"key": "5678", "number": 10, "operator": "decrement"}]'
+-- redis-cli --eval test.lua _lock_test , '[{"id": "1234", "num": 20, "ops": "incr"}, {"id": "5678", "num": 10, "ops": "decr"}]' id num ops incr decr 1 1000
 
-local param_lock_key            = KEYS[1] -- 锁KEY
-local param_lock_value          = ARGV[1] -- 锁值
-local param_lock_expire         = ARGV[2] -- 锁有效时间,单位毫秒
-local param_json_key            = ARGV[3] -- JSON的key名称
-local param_json_number         = ARGV[4] -- JSON的number名称
-local param_json_operator       = ARGV[5] -- JSON的operator名称
-local param_operator_increment  = ARGV[6] -- 增加的操作值
-local param_operator_decrement  = ARGV[7] -- 减少的操作值
-local param_json_data           = ARGV[8] -- 需要操作的JSON数据
+local param_lock_key            = KEYS[1]                -- 锁KEY
+local param_json_data           = ARGV[1]                -- 需要操作的JSON数据
+local param_json_key            = ARGV[2] or "key"       -- JSON的key名称
+local param_json_number         = ARGV[3] or "number"    -- JSON的number名称
+local param_json_operator       = ARGV[4] or "operator"  -- JSON的operator名称
+local param_operator_increment  = ARGV[5] or "increment" -- 增加的操作值
+local param_operator_decrement  = ARGV[6] or "decrement" -- 减少的操作值
+local param_lock_value          = ARGV[7] or "1"         -- 锁定的值
+local param_lock_expire         = ARGV[8] or 50          -- 锁有效时间,单位毫秒
 
 -- 1、转换请求参数
 if(not tranfer(param_json_data, param_json_key, param_json_number, param_json_operator, param_operator_increment, param_operator_decrement)) then

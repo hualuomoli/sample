@@ -22,7 +22,11 @@ public class KafkaLogbackTest {
     @Test
     @Ignore
     public void test() {
+        logger.trace("send trace to kafka");
+        logger.debug("send debug to kafka");
         logger.info("send info to kafka");
+        logger.warn("send warn to kafka");
+        logger.error("send error to kafka");
     }
 
     @Test

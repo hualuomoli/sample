@@ -26,6 +26,7 @@ public class KafkaLogbackTest {
     }
 
     @Test
+    @Ignore
     public void testPressure() throws InterruptedException {
         final int THREAD_SIZE = 3000;
         final int BATCH = 50;

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+    <!-- converter -->
+    <conversionRule conversionWord="ip" converterClass="sample.kafka.logback.converter.IpLogConverter" />
+
     <!-- kafka appender -->
     <appender name="KafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{36} - %msg%n</pattern>
+            <pattern>%ip %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{36} - %msg%n</pattern>
         </encoder>
         <topic>kafka-logback</topic>
         <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy" />

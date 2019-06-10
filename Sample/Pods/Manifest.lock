@@ -1,0 +1,32 @@
+PODS:
+  - PromiseKit (6.8.4):
+    - PromiseKit/CorePromise (= 6.8.4)
+    - PromiseKit/Foundation (= 6.8.4)
+    - PromiseKit/UIKit (= 6.8.4)
+  - PromiseKit/CorePromise (6.8.4)
+  - PromiseKit/Foundation (6.8.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.4):
+    - PromiseKit/CorePromise
+  - SVProgressHUD (2.2.5)
+  - SwiftTheme (0.4.4)
+
+DEPENDENCIES:
+  - PromiseKit (~> 6.8)
+  - SVProgressHUD
+  - SwiftTheme
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PromiseKit
+    - SVProgressHUD
+    - SwiftTheme
+
+SPEC CHECKSUMS:
+  PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftTheme: a381f983da92153908b7a9eeb961b18b6d94d614
+
+PODFILE CHECKSUM: 0ae786e35bf5603f22f6b2166eb212f927880cef
+
+COCOAPODS: 1.7.0

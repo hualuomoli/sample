@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = ThemeHomeViewController()
         
 //        window?.rootViewController = HUDViewController()
-        window?.rootViewController = BlockViewController()
+//        window?.rootViewController = BlockViewController()
+//        window?.rootViewController = AVplayerViewController()
+        window?.rootViewController = HandyJSONViewController()
         
         return true
     }

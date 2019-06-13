@@ -10,6 +10,17 @@
 		6A54A38CB56CD15D5722E403 /* Pods_SampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A1BFB96DD2C878CE5A1EB3 /* Pods_SampleTests.framework */; };
 		727373DA3B13D26FAD039086 /* Pods_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB40B7FCEED75F60965E01D4 /* Pods_Sample.framework */; };
 		AE33E66C68AA78252B4EC668 /* Pods_SampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718A2E2F14DD7D5212FDF927 /* Pods_SampleUITests.framework */; };
+		C37B698322AF42C600BC1F7F /* AVplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B698122AF42C600BC1F7F /* AVplayerViewController.swift */; };
+		C37B698422AF42C600BC1F7F /* AVplayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37B698222AF42C600BC1F7F /* AVplayerViewController.xib */; };
+		C37B699222AF55DD00BC1F7F /* AVPlayerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B699122AF55DD00BC1F7F /* AVPlayerConstants.swift */; };
+		C37B699A22AF60AF00BC1F7F /* AVPlayerNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B699822AF60AF00BC1F7F /* AVPlayerNetworkViewController.swift */; };
+		C37B699B22AF60AF00BC1F7F /* AVPlayerNetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37B699922AF60AF00BC1F7F /* AVPlayerNetworkViewController.xib */; };
+		C37B69A422AF72B000BC1F7F /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B69A322AF72B000BC1F7F /* AVPlayerView.swift */; };
+		C37B69A622AF72C400BC1F7F /* AVPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37B69A522AF72C400BC1F7F /* AVPlayerView.xib */; };
+		C37B69A922AF9F7D00BC1F7F /* AVPlayerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B69A822AF9F7D00BC1F7F /* AVPlayerUtils.swift */; };
+		C3B2589622B25E8D00F81F23 /* HandyJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2589422B25E8D00F81F23 /* HandyJSONViewController.swift */; };
+		C3B2589722B25E8D00F81F23 /* HandyJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B2589522B25E8D00F81F23 /* HandyJSONViewController.xib */; };
+		C3B2589922B25F4700F81F23 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2589822B25F4700F81F23 /* User.swift */; };
 		C3B67E7422A8E7190012CB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B67E7322A8E7190012CB9A /* AppDelegate.swift */; };
 		C3B67E7622A8E7190012CB9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B67E7522A8E7190012CB9A /* ViewController.swift */; };
 		C3B67E7922A8E7190012CB9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B67E7722A8E7190012CB9A /* Main.storyboard */; };
@@ -75,6 +86,17 @@
 		BB40B7FCEED75F60965E01D4 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08699C0426477CCC38E37E0 /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		C2158A2F1ADBCEDD33FAE6D7 /* Pods-SampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleUITests.release.xcconfig"; path = "Target Support Files/Pods-SampleUITests/Pods-SampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C37B698122AF42C600BC1F7F /* AVplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVplayerViewController.swift; sourceTree = "<group>"; };
+		C37B698222AF42C600BC1F7F /* AVplayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVplayerViewController.xib; sourceTree = "<group>"; };
+		C37B699122AF55DD00BC1F7F /* AVPlayerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerConstants.swift; sourceTree = "<group>"; };
+		C37B699822AF60AF00BC1F7F /* AVPlayerNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerNetworkViewController.swift; sourceTree = "<group>"; };
+		C37B699922AF60AF00BC1F7F /* AVPlayerNetworkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVPlayerNetworkViewController.xib; sourceTree = "<group>"; };
+		C37B69A322AF72B000BC1F7F /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
+		C37B69A522AF72C400BC1F7F /* AVPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVPlayerView.xib; sourceTree = "<group>"; };
+		C37B69A822AF9F7D00BC1F7F /* AVPlayerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerUtils.swift; sourceTree = "<group>"; };
+		C3B2589422B25E8D00F81F23 /* HandyJSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandyJSONViewController.swift; sourceTree = "<group>"; };
+		C3B2589522B25E8D00F81F23 /* HandyJSONViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandyJSONViewController.xib; sourceTree = "<group>"; };
+		C3B2589822B25F4700F81F23 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C3B67E7022A8E7190012CB9A /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B67E7322A8E7190012CB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B67E7522A8E7190012CB9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +196,63 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C37B698022AF424D00BC1F7F /* AVplayer */ = {
+			isa = PBXGroup;
+			children = (
+				C37B69A722AF9F6000BC1F7F /* Utils */,
+				C37B699E22AF71A500BC1F7F /* View */,
+				C37B699322AF598700BC1F7F /* Network */,
+				C37B699022AF55AB00BC1F7F /* Constants */,
+				C37B698122AF42C600BC1F7F /* AVplayerViewController.swift */,
+				C37B698222AF42C600BC1F7F /* AVplayerViewController.xib */,
+			);
+			path = AVplayer;
+			sourceTree = "<group>";
+		};
+		C37B699022AF55AB00BC1F7F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C37B699122AF55DD00BC1F7F /* AVPlayerConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C37B699322AF598700BC1F7F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C37B699822AF60AF00BC1F7F /* AVPlayerNetworkViewController.swift */,
+				C37B699922AF60AF00BC1F7F /* AVPlayerNetworkViewController.xib */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C37B699E22AF71A500BC1F7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C37B69A322AF72B000BC1F7F /* AVPlayerView.swift */,
+				C37B69A522AF72C400BC1F7F /* AVPlayerView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C37B69A722AF9F6000BC1F7F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C37B69A822AF9F7D00BC1F7F /* AVPlayerUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C37B69AA22B25E2C00BC1F7F /* HandyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				C3B2589422B25E8D00F81F23 /* HandyJSONViewController.swift */,
+				C3B2589522B25E8D00F81F23 /* HandyJSONViewController.xib */,
+				C3B2589822B25F4700F81F23 /* User.swift */,
+			);
+			path = HandyJSON;
+			sourceTree = "<group>";
+		};
 		C3B67E6722A8E7190012CB9A = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +279,8 @@
 		C3B67E7222A8E7190012CB9A /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				C37B69AA22B25E2C00BC1F7F /* HandyJSON */,
+				C37B698022AF424D00BC1F7F /* AVplayer */,
 				C3B67EF622AC94E90012CB9A /* RXSwift */,
 				C3B67EF122AB66120012CB9A /* Block */,
 				C3B67ED422AA495F0012CB9A /* PromiseKit */,
@@ -455,21 +536,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B67ECA22AA40860012CB9A /* theme_dark.plist in Resources */,
+				C3B2589722B25E8D00F81F23 /* HandyJSONViewController.xib in Resources */,
 				C3B67EE322AB47470012CB9A /* ThemeUsePlistConstantsViewController.xib in Resources */,
 				C3B67ECD22AA42600012CB9A /* theme_light.plist in Resources */,
 				C3B67E7E22A8E71A0012CB9A /* LaunchScreen.storyboard in Resources */,
 				C3B67ED922AA49860012CB9A /* PromiseKitViewController.xib in Resources */,
 				C3B67ED322AA44680012CB9A /* SVProgressHUDViewController.xib in Resources */,
 				C3B67EC422AA3D6D0012CB9A /* theme_default.plist in Resources */,
+				C37B698422AF42C600BC1F7F /* AVplayerViewController.xib in Resources */,
 				C3B67EAC22A8E83D0012CB9A /* AddressBookLoginViewController.xib in Resources */,
 				C3B67EC822AA3EB00012CB9A /* ThemeUsePlistViewController.xib in Resources */,
 				C3B67EC222AA38FA0012CB9A /* ThemeViewController.xib in Resources */,
 				C3B67E7B22A8E71A0012CB9A /* Assets.xcassets in Resources */,
+				C37B69A622AF72C400BC1F7F /* AVPlayerView.xib in Resources */,
 				C3B67EA822A8E7F60012CB9A /* AddressBookViewController.xib in Resources */,
 				C3B67EF522AB662F0012CB9A /* BlockViewController.xib in Resources */,
 				C3B67EEB22AB5CF70012CB9A /* HUDViewController.xib in Resources */,
 				C3B67EBB22A90BDA0012CB9A /* AddressBookInfosViewController.xib in Resources */,
 				C3B67EB422A907B40012CB9A /* readme.md in Resources */,
+				C37B699B22AF60AF00BC1F7F /* AVPlayerNetworkViewController.xib in Resources */,
 				C3B67EE722AB491C0012CB9A /* ThemeHomeViewController.xib in Resources */,
 				C3B67EDF22AB41EC0012CB9A /* ThemeConstantsViewController.xib in Resources */,
 				C3B67EF822AC950C0012CB9A /* readme.md in Resources */,
@@ -584,22 +669,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37B698322AF42C600BC1F7F /* AVplayerViewController.swift in Sources */,
 				C3B67EBA22A90BDA0012CB9A /* AddressBookInfosViewController.swift in Sources */,
 				C3B67EE622AB491C0012CB9A /* ThemeHomeViewController.swift in Sources */,
 				C3B67ED822AA49860012CB9A /* PromiseKitViewController.swift in Sources */,
+				C37B69A422AF72B000BC1F7F /* AVPlayerView.swift in Sources */,
 				C3B67EAB22A8E83D0012CB9A /* AddressBookLoginViewController.swift in Sources */,
 				C3B67EC122AA38FA0012CB9A /* ThemeViewController.swift in Sources */,
+				C3B2589622B25E8D00F81F23 /* HandyJSONViewController.swift in Sources */,
 				C3B67EDB22AA59F50012CB9A /* PromiseKitError.swift in Sources */,
 				C3B67EB222A906BF0012CB9A /* Result.swift in Sources */,
 				C3B67EA722A8E7F60012CB9A /* AddressBookViewController.swift in Sources */,
+				C37B699A22AF60AF00BC1F7F /* AVPlayerNetworkViewController.swift in Sources */,
 				C3B67EC722AA3EB00012CB9A /* ThemeUsePlistViewController.swift in Sources */,
 				C3B67EEA22AB5CF70012CB9A /* HUDViewController.swift in Sources */,
 				C3B67EDE22AB41EC0012CB9A /* ThemeConstantsViewController.swift in Sources */,
 				C3B67ED222AA44680012CB9A /* SVProgressHUDViewController.swift in Sources */,
 				C3B67E7622A8E7190012CB9A /* ViewController.swift in Sources */,
+				C37B69A922AF9F7D00BC1F7F /* AVPlayerUtils.swift in Sources */,
 				C3B67EE222AB47470012CB9A /* ThemeUsePlistConstantsViewController.swift in Sources */,
+				C37B699222AF55DD00BC1F7F /* AVPlayerConstants.swift in Sources */,
 				C3B67EF422AB662F0012CB9A /* BlockViewController.swift in Sources */,
 				C3B67E7422A8E7190012CB9A /* AppDelegate.swift in Sources */,
+				C3B2589922B25F4700F81F23 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

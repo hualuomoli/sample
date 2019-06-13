@@ -1,4 +1,5 @@
 PODS:
+  - HandyJSON (5.0.0)
   - PromiseKit (6.8.4):
     - PromiseKit/CorePromise (= 6.8.4)
     - PromiseKit/Foundation (= 6.8.4)
@@ -12,21 +13,24 @@ PODS:
   - SwiftTheme (0.4.4)
 
 DEPENDENCIES:
+  - HandyJSON (~> 5.0.0)
   - PromiseKit (~> 6.8)
   - SVProgressHUD
   - SwiftTheme
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - HandyJSON
     - PromiseKit
     - SVProgressHUD
     - SwiftTheme
 
 SPEC CHECKSUMS:
+  HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftTheme: a381f983da92153908b7a9eeb961b18b6d94d614
 
-PODFILE CHECKSUM: 0ae786e35bf5603f22f6b2166eb212f927880cef
+PODFILE CHECKSUM: 614d0c0268b54b8da19ccd442150591a5481f4cb
 
 COCOAPODS: 1.7.0

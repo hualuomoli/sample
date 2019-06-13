@@ -16,6 +16,9 @@ target 'Sample' do
   
   # theme
   pod 'SwiftTheme'
+  
+  # json
+  pod 'HandyJSON', '~> 5.0.0'
 
   target 'SampleTests' do
     inherit! :search_paths

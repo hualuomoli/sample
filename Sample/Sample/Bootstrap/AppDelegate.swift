@@ -25,7 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = HUDViewController()
 //        window?.rootViewController = BlockViewController()
 //        window?.rootViewController = AVplayerViewController()
-        window?.rootViewController = HandyJSONViewController()
+//        window?.rootViewController = HandyJSONViewController()
+//        window?.rootViewController = DemoPagePassDataHomeViewController()
+        window?.rootViewController = ImageGifViewController()
         
         return true
     }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoPagePassDataReverseViewController" customModule="Sample" customModuleProvider="target">
+            <connections>
+                <outlet property="confirmButton" destination="Ah0-Td-xjb" id="vPJ-j4-xXb"/>
+                <outlet property="reverseText" destination="Tne-sx-8ad" id="gNg-Pk-hnk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah0-Td-xjb">
+                    <rect key="frame" x="0.0" y="154" width="414" height="30"/>
+                    <state key="normal" title="提交结果"/>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="反向传值" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tne-sx-8ad">
+                    <rect key="frame" x="0.0" y="84" width="414" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ah0-Td-xjb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6ny-x5-YbK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Tne-sx-8ad" secondAttribute="trailing" id="6pR-0n-Q6U"/>
+                <constraint firstItem="Tne-sx-8ad" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E3d-wC-tOk"/>
+                <constraint firstItem="Tne-sx-8ad" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YON-gT-MMs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ah0-Td-xjb" secondAttribute="trailing" id="caT-hv-I5c"/>
+                <constraint firstItem="Tne-sx-8ad" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="rWz-w4-Fi5"/>
+                <constraint firstItem="Ah0-Td-xjb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xMX-r0-k6r"/>
+                <constraint firstItem="Ah0-Td-xjb" firstAttribute="top" secondItem="Tne-sx-8ad" secondAttribute="bottom" constant="40" id="zbu-6z-lJd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

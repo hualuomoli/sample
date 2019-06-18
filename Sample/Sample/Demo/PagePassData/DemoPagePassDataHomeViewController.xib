@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoPagePassDataHomeViewController" customModule="Sample" customModuleProvider="target">
+            <connections>
+                <outlet property="attributeButton" destination="epP-aN-ATi" id="Eqp-bI-d2C"/>
+                <outlet property="blockButton" destination="U3P-Ib-fUG" id="8j8-l2-gLc"/>
+                <outlet property="dataText" destination="mK0-Mc-3rZ" id="TMa-KG-2Mt"/>
+                <outlet property="notificationReverseButton" destination="mDP-fa-Glu" id="qzY-WR-acB"/>
+                <outlet property="reverseButton" destination="niD-hW-hNt" id="qPE-Kw-leZ"/>
+                <outlet property="singleButton" destination="OiY-db-TFg" id="xmO-97-sGe"/>
+                <outlet property="userDefaultsButton" destination="Onb-Ug-4Vm" id="iH2-Pn-koT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="页面值" borderStyle="roundedRect" placeholder="请输入数据" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mK0-Mc-3rZ">
+                    <rect key="frame" x="0.0" y="84" width="414" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epP-aN-ATi">
+                    <rect key="frame" x="0.0" y="154" width="414" height="30"/>
+                    <state key="normal" title="属性传值"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiY-db-TFg">
+                    <rect key="frame" x="0.0" y="224" width="414" height="30"/>
+                    <state key="normal" title="单例传值"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-Ug-4Vm">
+                    <rect key="frame" x="0.0" y="294" width="414" height="30"/>
+                    <state key="normal" title="UserDefaults"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niD-hW-hNt">
+                    <rect key="frame" x="0.0" y="364" width="414" height="30"/>
+                    <state key="normal" title="delegate回传"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3P-Ib-fUG">
+                    <rect key="frame" x="0.0" y="434" width="414" height="30"/>
+                    <state key="normal" title="block回传"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDP-fa-Glu">
+                    <rect key="frame" x="0.0" y="504" width="414" height="30"/>
+                    <state key="normal" title="Notification回传"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="epP-aN-ATi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1IN-FU-uP7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mDP-fa-Glu" secondAttribute="trailing" id="2A8-Dp-loC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mK0-Mc-3rZ" secondAttribute="trailing" id="45w-DG-PZz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="niD-hW-hNt" secondAttribute="trailing" id="7VP-e7-ul9"/>
+                <constraint firstItem="niD-hW-hNt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7lK-Rz-mGf"/>
+                <constraint firstItem="OiY-db-TFg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AaV-p7-D6a"/>
+                <constraint firstItem="mDP-fa-Glu" firstAttribute="top" secondItem="U3P-Ib-fUG" secondAttribute="bottom" constant="40" id="Ecv-ye-elP"/>
+                <constraint firstItem="U3P-Ib-fUG" firstAttribute="top" secondItem="niD-hW-hNt" secondAttribute="bottom" constant="40" id="GX0-fW-b0y"/>
+                <constraint firstItem="epP-aN-ATi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ig7-dl-RGK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U3P-Ib-fUG" secondAttribute="trailing" id="LmW-7y-dy5"/>
+                <constraint firstItem="Onb-Ug-4Vm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PBJ-i0-ERp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Onb-Ug-4Vm" secondAttribute="trailing" id="R03-41-z33"/>
+                <constraint firstItem="OiY-db-TFg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ra8-fJ-toO"/>
+                <constraint firstItem="mDP-fa-Glu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UZm-iP-WVU"/>
+                <constraint firstItem="mK0-Mc-3rZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZSZ-dn-Ire"/>
+                <constraint firstItem="mK0-Mc-3rZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aEE-1e-NwN"/>
+                <constraint firstItem="Onb-Ug-4Vm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fi5-mS-YO1"/>
+                <constraint firstItem="mDP-fa-Glu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gtf-Oe-Avf"/>
+                <constraint firstItem="Onb-Ug-4Vm" firstAttribute="top" secondItem="OiY-db-TFg" secondAttribute="bottom" constant="40" id="gv4-KX-6dp"/>
+                <constraint firstItem="U3P-Ib-fUG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mYp-uS-tKX"/>
+                <constraint firstItem="niD-hW-hNt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mbc-41-tvA"/>
+                <constraint firstItem="OiY-db-TFg" firstAttribute="top" secondItem="epP-aN-ATi" secondAttribute="bottom" constant="40" id="oPA-tw-0BG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="epP-aN-ATi" secondAttribute="trailing" id="p6x-6L-gEE"/>
+                <constraint firstItem="epP-aN-ATi" firstAttribute="top" secondItem="mK0-Mc-3rZ" secondAttribute="bottom" constant="40" id="vWN-BZ-nbg"/>
+                <constraint firstItem="U3P-Ib-fUG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="x5g-y7-0rI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OiY-db-TFg" secondAttribute="trailing" id="xWf-KW-xOE"/>
+                <constraint firstItem="mK0-Mc-3rZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="yzO-8z-01a"/>
+                <constraint firstItem="niD-hW-hNt" firstAttribute="top" secondItem="Onb-Ug-4Vm" secondAttribute="bottom" constant="40" id="zHI-eO-6VY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

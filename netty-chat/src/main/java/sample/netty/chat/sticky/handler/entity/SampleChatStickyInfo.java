@@ -1,6 +1,6 @@
-package sample.netty.chat.handler;
+package sample.netty.chat.sticky.handler.entity;
 
-public class SampleChatInfo {
+public class SampleChatStickyInfo {
 
 	private byte[] datas;
 

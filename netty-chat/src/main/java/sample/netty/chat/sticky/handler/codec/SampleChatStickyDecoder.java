@@ -1,4 +1,4 @@
-package sample.netty.chat.handler.codec;
+package sample.netty.chat.sticky.handler.codec;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
-import sample.netty.chat.handler.SampleChatInfo;
+import sample.netty.chat.sticky.handler.entity.SampleChatStickyInfo;
 
 /**
  * 处理粘包,数据解码
@@ -20,9 +20,9 @@ import sample.netty.chat.handler.SampleChatInfo;
  * 数据长度: 01
  * 数据内容: 41(
  */
-public class SampleChatDecoder extends ByteToMessageDecoder {
+public class SampleChatStickyDecoder extends ByteToMessageDecoder {
 
-    private static final Logger logger = LoggerFactory.getLogger(SampleChatDecoder.class);
+    private static final Logger logger = LoggerFactory.getLogger(SampleChatStickyDecoder.class);
 
     private static final byte[] HEADER = { 0x75, 0x72 }; // 报文头
 
@@ -90,7 +90,7 @@ public class SampleChatDecoder extends ByteToMessageDecoder {
         in.readBytes(datas);
 
         // 添加到out
-        SampleChatInfo info = new SampleChatInfo();
+        SampleChatStickyInfo info = new SampleChatStickyInfo();
         info.setDatas(datas);
         out.add(info);
     }

@@ -28,6 +28,7 @@
 	<modules>
 		<module>flink-socket</module>
 		<module>flink-cep</module>
+		<module>flink-patten</module>
 	</modules>
 
 	<dependencies>

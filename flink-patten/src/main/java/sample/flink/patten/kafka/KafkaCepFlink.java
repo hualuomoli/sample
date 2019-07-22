@@ -1,10 +1,12 @@
-package sample.flink.patten.socket;
+package sample.flink.patten.kafka;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.cep.CEP;
 import org.apache.flink.cep.PatternSelectFunction;
 import org.apache.flink.cep.PatternStream;
@@ -13,10 +15,12 @@ import org.apache.flink.cep.pattern.conditions.IterativeCondition;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer010;
 
-public class SocketCepFlink {
+import com.google.common.collect.Maps;
 
-    // nc -l 9000
+public class KafkaCepFlink {
+
     public static void main(String[] args) throws Exception {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -65,10 +69,19 @@ public class SocketCepFlink {
     }
 
     private static DataStream<String> loadStream(StreamExecutionEnvironment env) {
-        String hostname = "localhost";
-        Integer port = 9000;
-        String delimiter = "\n";
-        return env.socketTextStream(hostname, port, delimiter);
+        String topicId = "kafka-cep-flink";
+        Map<String, String> properties = Maps.newHashMap();
+        properties.put("bootstrap.servers", "localhost:9092");
+        properties.put("group.id", "test");
+        properties.put("enable.auto.commit", "true");
+        properties.put("auto.commit.interval.ms", "1000");
+        properties.put("auto.offset.reset", "earliest");
+        properties.put("session.timeout.ms", "30000");
+        ParameterTool parameterTool = ParameterTool.fromMap(properties);
+
+        FlinkKafkaConsumer010<String> consumer = new FlinkKafkaConsumer010<String>(topicId, new SimpleStringSchema(),
+                parameterTool.getProperties());
+        return env.addSource(consumer);
     }
 
 }

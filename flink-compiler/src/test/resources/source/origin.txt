@@ -1,0 +1,9 @@
+package sample.flink.compiler;
+
+public class Demo {
+
+    public String say(String world) {
+        return "I say " + world;
+    }
+
+}

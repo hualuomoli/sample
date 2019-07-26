@@ -1,0 +1,12 @@
+package sample.flink.compiler;
+
+import org.apache.commons.lang3.Validate;
+
+public class Demo {
+
+    public String say(String world) {
+        Validate.notBlank(world, "world is blank.");
+        return "I say " + world + " with update.";
+    }
+
+}

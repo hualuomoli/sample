@@ -7,27 +7,11 @@
 		<artifactId>flink-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>flink-cep</artifactId>
-	<name>flink-cep</name>
+	<artifactId>flink-compiler</artifactId>
+	<name>flink-compiler</name>
+
 
 	<dependencies>
-
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-java</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-streaming-java_${scala.version}</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-cep_${scala.version}</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-clients_${scala.version}</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -41,6 +25,15 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.itranswarp</groupId>
+			<artifactId>compiler</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -52,5 +45,15 @@
 		</dependency>
 
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.itranswarp</groupId>
+				<artifactId>compiler</artifactId>
+				<version>1.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>

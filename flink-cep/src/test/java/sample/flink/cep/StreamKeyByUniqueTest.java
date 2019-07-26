@@ -2,11 +2,11 @@ package sample.flink.cep;
 
 import org.junit.Test;
 
-public class StreamGroupWithUniqueTest {
+public class StreamKeyByUniqueTest {
 
     @Test
     public void testExecute() throws Exception {
-        StreamGroupWithUnique.execute();
+        StreamKeyByUnique.execute();
     }
 
 }

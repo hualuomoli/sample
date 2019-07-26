@@ -25,7 +25,7 @@ import sample.flink.cep.entity.RecordStatus;
 /**
  * 根据唯一属性分组
  */
-public class StreamGroupWithUnique {
+public class StreamKeyByUnique {
 
     private static final AtomicInteger atomic = new AtomicInteger();
 
@@ -83,7 +83,8 @@ public class StreamGroupWithUnique {
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
         DataStream<Record> stream = env.fromCollection(records)//
-                .assignTimestampsAndWatermarks(periodicWatermarks).keyBy(Record::getUsername);
+                .assignTimestampsAndWatermarks(periodicWatermarks)//
+                .keyBy(Record::getUsername);
 
         Pattern<Record, Record> pattern = Pattern.<Record>begin("step1").where(condition)//
                 .next("step2").where(condition) // 

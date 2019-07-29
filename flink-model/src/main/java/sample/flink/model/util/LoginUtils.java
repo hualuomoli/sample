@@ -19,19 +19,19 @@ public class LoginUtils {
      * 创建一组数据
      * @param size 数据大小
      * @param users 用户
-     * @param maxOffsetSeconds 最大偏移秒
-     * @param minOffsetSeconds 最小偏移秒
+     * @param maxIncrementOffsetSeconds 最大递增偏移秒
      * @return 一组登陆记录
      */
-    public static List<LoginRecord> create(int size, List<String> users, int maxOffsetSeconds, int minOffsetSeconds) {
+    public static List<LoginRecord> create(int size, List<String> users, int maxIncrementOffsetSeconds) {
         List<LoginRecord> records = Lists.newArrayList();
         Random random = new Random();
 
         List<LoginStatus> statusList = Lists.newArrayList(LoginStatus.values());
+        int offsetSeconds = 0;
         for (int i = 0; i < size; i++) {
             String username = users.get(random.nextInt(users.size()));
             LoginStatus loginStatus = statusList.get(random.nextInt(statusList.size()));
-            int offsetSeconds = random.nextInt(maxOffsetSeconds - minOffsetSeconds) + minOffsetSeconds;
+            offsetSeconds = RandomUtils.nextInt(1, maxIncrementOffsetSeconds) + offsetSeconds;
             records.add(create(username, loginStatus, offsetSeconds));
         }
         return records;

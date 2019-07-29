@@ -28,20 +28,20 @@ import sample.flink.model.util.TradeUtils;
 public class StreamKeyByUnique {
 
     private static final List<TradeRecord> records = Lists.newArrayList(//
-            TradeUtils.create("jack", TradeStatus.SUCCESS, 01)// 
-            , TradeUtils.create("pitter", TradeStatus.SUCCESS, 03) // 
-            , TradeUtils.create("jack", TradeStatus.FAIL___, 07) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 10) // 
-            , TradeUtils.create("tom", TradeStatus.SUCCESS, 15) // 
-            , TradeUtils.create("tom", TradeStatus.SUCCESS, 18) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 20) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 21) // 
-            , TradeUtils.create("jack", TradeStatus.FAIL___, 24) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 28) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 30) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 37) // 
-            , TradeUtils.create("jack", TradeStatus.FAIL___, 45) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 60) // 
+            TradeUtils.create("jack", TradeStatus.SUCCESS, 500, 01) // 
+            , TradeUtils.create("pitter", TradeStatus.SUCCESS, 500, 03) // 
+            , TradeUtils.create("jack", TradeStatus.FAIL___, 500, 07) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 500, 10) // 
+            , TradeUtils.create("tom", TradeStatus.SUCCESS, 500, 15) // 
+            , TradeUtils.create("tom", TradeStatus.SUCCESS, 500, 18) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 500, 20) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 500, 21) // 
+            , TradeUtils.create("jack", TradeStatus.FAIL___, 500, 24) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 500, 28) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 500, 30) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 500, 37) // 
+            , TradeUtils.create("jack", TradeStatus.FAIL___, 500, 45) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 500, 60) // 
     );
 
     @SuppressWarnings("serial")

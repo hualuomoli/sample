@@ -30,21 +30,21 @@ import sample.flink.model.util.TradeUtils;
 public class DefinitionEventTime {
 
     private static final List<TradeRecord> records = Lists.newArrayList(//
-            TradeUtils.create("jack", TradeStatus.SUCCESS, 01)// 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 03) // 
-            , TradeUtils.create("jack", TradeStatus.CANCEL_, 07) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 10) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 15) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 18) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 20) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 21) // 
-            , TradeUtils.create("jack", TradeStatus.FAIL___, 24) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 28) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 30) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 37) // 
-            , TradeUtils.create("jack", TradeStatus.CREATED, 45) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 60) // 
-            , TradeUtils.create("jack", TradeStatus.SUCCESS, 04) // 非按照数据的顺序添加的
+            TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 01) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 03) // 
+            , TradeUtils.create("jack", TradeStatus.CANCEL_, 100, 07) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 10) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 15) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 18) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 20) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 21) // 
+            , TradeUtils.create("jack", TradeStatus.FAIL___, 100, 24) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 28) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 30) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 37) // 
+            , TradeUtils.create("jack", TradeStatus.CREATED, 100, 45) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 60) // 
+            , TradeUtils.create("jack", TradeStatus.SUCCESS, 100, 04) // 非按照数据的顺序添加的
     );
 
     @SuppressWarnings("serial")

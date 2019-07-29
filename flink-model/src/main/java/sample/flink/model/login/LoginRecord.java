@@ -1,9 +1,13 @@
 package sample.flink.model.login;
 
+import java.io.Serializable;
+
 /**
  * 登陆记录
  */
-public class LoginRecord {
+public class LoginRecord implements Serializable {
+
+    private static final long serialVersionUID = -6552036060361017890L;
 
     /** ID */
     private Integer id;

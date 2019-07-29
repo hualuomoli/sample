@@ -1,9 +1,13 @@
 package sample.flink.model.trade;
 
+import java.io.Serializable;
+
 /**
  * 交易记录
  */
-public class TradeRecord {
+public class TradeRecord implements Serializable {
+
+    private static final long serialVersionUID = 7110131710380925554L;
 
     /** ID */
     private Integer id;
@@ -13,6 +17,8 @@ public class TradeRecord {
     private String tradeNo;
     /** 交易状态 */
     private TradeStatus tradeStatus;
+    /** 交易金额 */
+    private Integer tradeMoney;
     /** 交易时间 */
     private Long tradeTime;
 
@@ -51,6 +57,14 @@ public class TradeRecord {
         this.tradeStatus = tradeStatus;
     }
 
+    public Integer getTradeMoney() {
+        return tradeMoney;
+    }
+
+    public void setTradeMoney(Integer tradeMoney) {
+        this.tradeMoney = tradeMoney;
+    }
+
     public Long getTradeTime() {
         return tradeTime;
     }
@@ -62,7 +76,7 @@ public class TradeRecord {
     @Override
     public String toString() {
         return "TradeRecord [id=" + id + ", username=" + username + ", tradeNo=" + tradeNo + ", tradeStatus="
-                + tradeStatus + ", tradeTime=" + tradeTime + "]";
+                + tradeStatus + ", tradeMoney=" + tradeMoney + ", tradeTime=" + tradeTime + "]";
     }
 
 }

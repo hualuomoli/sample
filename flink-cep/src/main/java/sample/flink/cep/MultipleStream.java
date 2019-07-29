@@ -173,29 +173,4 @@ public class MultipleStream {
         return Integer.parseInt(new SimpleDateFormat("ss").format(new Date(time)));
     }
 
-    public static class Record {
-        private Object data;
-
-        public Record() {
-        }
-
-        public Record(Object data) {
-            this.data = data;
-        }
-
-        public Object getData() {
-            return data;
-        }
-
-        public void setData(Object data) {
-            this.data = data;
-        }
-
-        @Override
-        public String toString() {
-            return "Record [data=" + data + "]";
-        }
-
-    }
-
 }

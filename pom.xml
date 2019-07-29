@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>flink-compiler</module>
+		<module>flink-model</module>
 		<module>flink-cep</module>
 	</modules>
 
@@ -43,6 +44,12 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>com.github.hualuomoli.sample</groupId>
+				<artifactId>flink-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
 			<!-- flink -->
 			<dependency>

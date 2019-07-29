@@ -14,6 +14,7 @@ public class DefinitionEventTimeTest {
     }
 
     @Test
+    @Ignore
     public void testPunctuated() throws Exception {
         service.punctuated();
     }

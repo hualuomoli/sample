@@ -5,13 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FileController {
+public class ContentService {
 
     @Autowired
     private UserService userService;
 
-    public String show(String str) {
-        return userService.nickname(str);
+    public String content(String str) {
+        return "conent " + str;
     }
 
 }

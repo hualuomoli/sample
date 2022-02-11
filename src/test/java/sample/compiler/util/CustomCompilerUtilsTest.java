@@ -86,7 +86,7 @@ public class CustomCompilerUtilsTest {
         logger.info("result: {}", result);
 
 
-        // ========================= 变更 =========================
+        // ========================= 代码变更 =========================
         contents = this.content(simpleClassName + "2.java");
         // class loader[需要新的class loader]
         CustomClassLoader customClassLoader2 = new CustomClassLoader();
@@ -129,7 +129,7 @@ public class CustomCompilerUtilsTest {
         logger.info("result: {}", result);
 
 
-        // ========================= 变更 =========================
+        // ========================= 不同的class =========================
         className = "sample.compiler.file.ContentService";
         simpleClassName = className.substring(className.lastIndexOf(".") + 1);
         contents = this.content(simpleClassName + ".java");

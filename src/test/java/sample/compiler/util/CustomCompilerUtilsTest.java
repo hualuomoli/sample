@@ -6,11 +6,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.support.AbstractBeanDefinition;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.StreamUtils;
 
@@ -28,9 +24,7 @@ public class CustomCompilerUtilsTest {
     private static final Logger logger = LoggerFactory.getLogger(CustomCompilerUtilsTest.class);
 
     @Autowired
-    private DefaultListableBeanFactory beanFactory;
-    @Autowired
-    private ApplicationContext context;
+    private CustomBeanFactory customBeanFactory;
 
     @Test
     public void compile() throws Exception {
@@ -50,10 +44,10 @@ public class CustomCompilerUtilsTest {
         Class<?> clazz = CustomCompilerUtils.compile(customClassLoader, className, contents);
 
         // 注册
-        this.register(beanName, clazz);
+        customBeanFactory.register(beanName, clazz);
 
         // 调用
-        Object bean = context.getBean(beanName);
+        Object bean = customBeanFactory.getBean(beanName);
         Method method = clazz.getMethod("show", new Class[]{String.class});
         Object result = method.invoke(bean, new Object[]{"jack"});
         logger.info("result: {}", result);
@@ -77,10 +71,10 @@ public class CustomCompilerUtilsTest {
         Class<?> clazz = CustomCompilerUtils.compile(customClassLoader, className, contents);
 
         // 注册
-        this.register(beanName, clazz);
+        customBeanFactory.register(beanName, clazz);
 
         // 调用
-        Object bean = context.getBean(beanName);
+        Object bean = customBeanFactory.getBean(beanName);
         Method method = clazz.getMethod("show", new Class[]{String.class});
         Object result = method.invoke(bean, new Object[]{"jack"});
         logger.info("result: {}", result);
@@ -93,10 +87,10 @@ public class CustomCompilerUtilsTest {
         // 编译
         clazz = CustomCompilerUtils.compile(customClassLoader2, className, contents);
         // 注册
-        this.register(beanName, clazz);
+        customBeanFactory.register(beanName, clazz);
 
         // 调用
-        bean = context.getBean(beanName);
+        bean = customBeanFactory.getBean(beanName);
         method = clazz.getMethod("show", new Class[]{String.class});
         result = method.invoke(bean, new Object[]{"jack"});
         logger.info("result: {}", result);
@@ -120,10 +114,10 @@ public class CustomCompilerUtilsTest {
         Class<?> clazz = CustomCompilerUtils.compile(customClassLoader, className, contents);
 
         // 注册
-        this.register(beanName, clazz);
+        customBeanFactory.register(beanName, clazz);
 
         // 调用
-        Object bean = context.getBean(beanName);
+        Object bean = customBeanFactory.getBean(beanName);
         Method method = clazz.getMethod("show", new Class[]{String.class});
         Object result = method.invoke(bean, new Object[]{"jack"});
         logger.info("result: {}", result);
@@ -136,26 +130,44 @@ public class CustomCompilerUtilsTest {
         // 编译
         clazz = CustomCompilerUtils.compile(customClassLoader, className, contents); // 使用同一个class loader
         // 注册
-        this.register(beanName, clazz);
+        customBeanFactory.register(beanName, clazz);
 
         // 调用
-        bean = context.getBean(beanName);
+        bean = customBeanFactory.getBean(beanName);
         method = clazz.getMethod("content", new Class[]{String.class});
         result = method.invoke(bean, new Object[]{"jack"});
         logger.info("result: {}", result);
     }
 
-    private void register(String beanName, Class<?> clazz) {
+    @Test
+    public void compileAndListen() throws Exception {
+        String className = "sample.compiler.file.FileService";
+        String simpleClassName = className.substring(className.lastIndexOf(".") + 1);
 
-        // remove
-        if (beanFactory.containsBean(beanName)) {
-            beanFactory.removeBeanDefinition(beanName);
-        }
+        // 文件内容
+        String contents = this.content(simpleClassName + ".java");
 
-        // register
-        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(clazz);
-        AbstractBeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
-        beanFactory.registerBeanDefinition(beanName, beanDefinition);
+        // bean名称
+        String beanName = StringUtils.uncapitalize(simpleClassName);
+
+        // class loader
+        CustomClassLoader customClassLoader = new CustomClassLoader();
+
+        // 编译
+        Class<?> clazz = CustomCompilerUtils.compile(customClassLoader, className, contents);
+
+        // 监听器
+        CustomBeanFactory.Listener listener = (bean, beanName1, clazz1) -> logger.info("reload bean {}", beanName1);
+        customBeanFactory.addListener(listener);
+
+        // 注册
+        customBeanFactory.register(beanName, clazz);
+
+        // 调用
+        Object bean = customBeanFactory.getBean(beanName);
+        Method method = clazz.getMethod("show", new Class[]{String.class});
+        Object result = method.invoke(bean, new Object[]{"jack"});
+        logger.info("result: {}", result);
     }
 
     private String content(String relativeFilename) {
